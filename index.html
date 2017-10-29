@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <style>
+            body {
+                width: 100%;
+                text-align: center; 
+            }
+            #container {
+                margin: 0 auto;
+            }
+            textarea {
+                height: 20em;
+                width: 30em;
+            }
+        </style>
+        <script src="./index.js"></script>
+        <title>externs gen</title>
+    </head>
+    <body>
+        <div id="container">
+            <textarea id="output"></textarea>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+            let externs = listAllExterns(jQuery, 'jQuery');
+            document.getElementById('output').value = externs.join(';\n');
+            document.getElementById('output').addEventListener('click', () => {
+                const target = document.getElementById('output');
+                target.focus();
+                target.select();
+            })
+        </script>
+    </body>
+</html>
